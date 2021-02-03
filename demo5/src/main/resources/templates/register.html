@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>用户注册</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css}">
+    <script th:src="@{https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js}"></script>
+    <script th:src="@{https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js}"></script>
+    <script th:src="@{https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/}">登录</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">注册</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+
+<div class="container">
+
+    <div class="card">
+        <div class="card-body" th:text="${info}"></div>
+    </div>
+
+    <form method="post" th:action="@{/register}" name="registerForm">
+        <div class="form-group">
+            <label for="userName">用户名:</label>
+            <input type="text" class="form-control" id="userName" name="userName">
+        </div>
+        <div class="form-group">
+            <label for="userPwd">密码:</label>
+            <input type="password" class="form-control" id="userPwd" name="userPwd">
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="checkResiterMsg()">注册</button>
+        <script type="text/javascript">
+            function checkResiterMsg() {
+
+                if ($("#userName").val() == "") {
+                    alert("请输入用户名！！！");
+                    $("#userName").focus();
+                    return false;
+                } else if ($("#userPwd").val() == "") {
+                    alert("请输入密码！！！");
+                    $("#userPwd").focus();
+                    return false;
+                } else {
+                    document.registerForm.submit();
+                }
+            }
+        </script>
+    </form>
+</div>
+
+</body>
+</html>

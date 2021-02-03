@@ -1,0 +1,9 @@
+spring:
+  # 设置数据库链接信息
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/SpringBoot?characterEncoding=utf8&useSSL=true
+    username: root
+    password: sa
+    driver-class-name: com.mysql.jdbc.Driver
+  thymeleaf:
+    cache: false

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SpringBoot后端接收Cookie数据</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>按钮样式</h2>
+    <button type="button" class="btn" onclick="setCookie()">设置cookie</button>
+    <script type="text/javascript">
+        function setCookie() {
+            $.ajax({
+                url: "/setCookie",
+                type: "post",
+                data: "1",
+                success: function (res) {
+                    if (res != null) {
+                        alert(res);
+                    }
+                }
+            });
+        }
+    </script>
+    <button type="button" class="btn btn-primary" onclick="getCookie()">获取cookie</button>
+    <script type="text/javascript">
+        function getCookie() {
+            $.ajax({
+                url: "/getCookie",
+                type: "post",
+                data: "1",
+                success: function (res) {
+                    if (res != null) {
+                        alert(res);
+                    }
+                }
+            });
+        }
+    </script>
+</div>
+</body>
+</html>
